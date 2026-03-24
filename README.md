@@ -1,12 +1,22 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue) ![Streamlit](https://img.shields.io/badge/UI-Streamlit-red) ![NLP](https://img.shields.io/badge/NLP-Word2Vec%20%7C%20GloVe-purple)
 # 🔍 Semantic Code Similarity Detector
-### A Logic-Based Plagiarism Checker using Word Embeddings & Cosine Similarity
+###A logic-based plagiarism checker that understands the **meaning** of code, not just the text. Built with Python and NLP embeddings, this tool is designed to identify structural similarities even when variable names are changed or comments are modified.
+
+🚀 **[Click here to view the Live Demo](https://semantic-code-similarity-detector.streamlit.app/)**
 
 ---
 
 ## Overview
 
 This tool detects plagiarism and logical similarity in Python source code using **NLP-based semantic analysis**. Unlike traditional text-diff tools, it understands the *meaning* of code rather than its surface form — making it robust against common obfuscation techniques like variable renaming, comment modification, and whitespace changes.
+
+---
+
+## 📱 App Preview
+
+| 📝 Single Comparison (with Gauge) | 📂 Batch Multi-File Analysis |
+| :---: | :---: |
+| ![Single Analysis](app_demo_1.png) | ![Batch Analysis](app_demo_2.png) |
 
 ---
 
