@@ -1,3 +1,4 @@
+![Python](https://img.shields.io/badge/Python-3.10+-blue) ![Streamlit](https://img.shields.io/badge/UI-Streamlit-red) ![NLP](https://img.shields.io/badge/NLP-Word2Vec%20%7C%20GloVe-purple)
 # 🔍 Semantic Code Similarity Detector
 ### A Logic-Based Plagiarism Checker using Word Embeddings & Cosine Similarity
 
