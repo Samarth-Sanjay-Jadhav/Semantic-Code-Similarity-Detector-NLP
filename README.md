@@ -1,6 +1,6 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue) ![Streamlit](https://img.shields.io/badge/UI-Streamlit-red) ![NLP](https://img.shields.io/badge/NLP-Word2Vec%20%7C%20GloVe-purple)
 # 🔍 Semantic Code Similarity Detector
-###A logic-based plagiarism checker that understands the **meaning** of code, not just the text. Built with Python and NLP embeddings, this tool is designed to identify structural similarities even when variable names are changed or comments are modified.
+### A logic-based plagiarism checker that understands the **meaning** of code, not just the text. Built with Python and NLP embeddings, this tool is designed to identify structural similarities even when variable names are changed or comments are modified.
 
 🚀 **[Click here to view the Live Demo](https://semantic-code-similarity-detector.streamlit.app/)**
 
