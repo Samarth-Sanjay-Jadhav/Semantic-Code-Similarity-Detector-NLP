@@ -14,7 +14,6 @@ This tool detects plagiarism and logical similarity in Python source code using 
 
 ## 📱 App Preview
 
-| 📝 Single Comparison (with Gauge) | 📂 Batch Multi-File Analysis |
 | :---: | :---: |
 | ![Single Analysis](app_demo_1.png) | ![Batch Analysis](app_demo_2.png) |
 
