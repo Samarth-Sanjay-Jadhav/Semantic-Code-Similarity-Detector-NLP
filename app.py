@@ -29,62 +29,120 @@ st.set_page_config(
 )
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Custom CSS
+# Custom CSS — Modern "Glassmorphism" Theme
 # ─────────────────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-/* ── Typography ── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
+/* ── Global Styles ── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── Header gradient ── */
+html, body, [class*="css"] { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    color: #f8fafc;
+}
+
+/* ── Main Background ── */
+.stApp {
+    background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+}
+
+/* ── Sidebar ── */
+section[data-testid="stSidebar"] {
+    background-color: rgba(15, 23, 42, 0.8);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Header Styling ── */
 .main-title {
-    font-size: 2.4rem; font-weight: 800; line-height: 1.1;
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text; margin-bottom: 4px;
+    font-size: 3rem; 
+    font-weight: 800; 
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #818cf8 0%, #c084fc 50%, #fb7185 100%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0px;
 }
 .subtitle {
-    color: #64748b; font-size: 1rem; margin-top: 0;
+    color: #94a3b8; 
+    font-size: 1.1rem; 
+    font-weight: 500;
+    margin-bottom: 2rem;
 }
 
-/* ── Verdict box ── */
-.verdict-box {
-    border-radius: 16px; padding: 1.6rem 2rem;
-    text-align: center; border: 2px solid;
+/* ── Glass Cards (Text Areas & Info Boxes) ── */
+div[data-baseweb="textarea"] {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px);
 }
-.verdict-title { font-size: 1.3rem; font-weight: 700; margin: 0 0 8px 0; }
-.verdict-score { font-size: 3.4rem; font-weight: 800; line-height: 1; }
-.verdict-sub   { font-size: 0.85rem; opacity: 0.75; margin-top: 4px; }
 
-/* ── Metric cards ── */
 .stat-card {
-    background: #f8fafc; border: 1px solid #e2e8f0;
-    border-radius: 10px; padding: 14px 16px; text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px; 
+    padding: 20px; 
+    transition: transform 0.3s ease;
 }
-.stat-label { font-size: 0.78rem; color: #64748b; font-weight: 500; text-transform: uppercase; letter-spacing: .5px; }
-.stat-value { font-size: 1.8rem; font-weight: 700; color: #1e293b; }
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+.stat-label { font-size: 0.7rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.stat-value { font-size: 1.8rem; font-weight: 800; color: #fff; }
 
-/* ── Token chips ── */
-.token-wrap { line-height: 2.1; }
+/* ── Buttons ── */
+.stButton>button {
+    background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+.stButton>button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+/* ── Verdict Box ── */
+.verdict-box {
+    border-radius: 24px; 
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* ── Token Chips ── */
 .chip {
-    display: inline-block; border-radius: 6px;
-    padding: 1px 8px; margin: 2px 2px;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.chip-kw  { background:#ede9fe; color:#5b21b6; }
-.chip-bi  { background:#dbeafe; color:#1e40af; }
-.chip-op  { background:#fce7f3; color:#9d174d; }
-.chip-lit { background:#dcfce7; color:#15803d; }
-.chip-id  { background:#f1f5f9; color:#334155; }
+.chip-kw  { background: rgba(139, 92, 246, 0.2); color: #c4b5fd; }
+.chip-bi  { background: rgba(14, 165, 233, 0.2); color: #7dd3fc; }
+.chip-op  { background: rgba(244, 63, 94, 0.2); color: #fda4af; }
+.chip-lit { background: rgba(34, 197, 94, 0.2); color: #86efac; }
+.chip-id  { background: rgba(255, 255, 255, 0.1); color: #e2e8f0; }
 
-/* ── Alert banners ── */
-.alert-danger  { background:#fef2f2; border-left:4px solid #dc2626; border-radius:8px; padding:12px 16px; margin:6px 0; }
-.alert-warning { background:#fff7ed; border-left:4px solid #ea580c; border-radius:8px; padding:12px 16px; margin:6px 0; }
-.alert-ok      { background:#f0fdf4; border-left:4px solid #16a34a; border-radius:8px; padding:12px 16px; margin:6px 0; }
-
-/* ── Tab styling ── */
-.stTabs [data-baseweb="tab"] { font-size: 0.95rem; font-weight: 500; padding: 10px 20px; }
+/* ── Tab Customization ── */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+}
+.stTabs [data-baseweb="tab"] {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px 8px 0 0;
+    color: #94a3b8;
+}
+.stTabs [aria-selected="true"] {
+    background-color: rgba(99, 102, 241, 0.2) !important;
+    color: white !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -123,37 +181,42 @@ def show_tokens(tokens: list, max_tokens: int = 60):
 def make_gauge(score: float) -> go.Figure:
     pct  = score * 100
     info = get_similarity_info(score)
+    
+    # Custom neon-inspired colors for the dark theme
     fig  = go.Figure(go.Indicator(
         mode="gauge+number",
         value=pct,
-        number={'suffix': '%', 'font': {'size': 42, 'color': info['color']}},
+        number={'suffix': '%', 'font': {'size': 48, 'color': '#ffffff', 'family': 'Plus Jakarta Sans'}},
         title={'text': f"<b>{info['label']}</b>",
-               'font': {'size': 16, 'color': info['color']}},
+               'font': {'size': 18, 'color': info['color'], 'family': 'Plus Jakarta Sans'}},
         gauge={
             'axis': {
                 'range': [0, 100],
-                'tickvals': [0, 40, 65, 80, 95, 100],
-                'ticktext': ['0', '40', '65', '80', '95', '100'],
+                'tickvals': [0, 25, 50, 75, 100],
                 'tickwidth': 1, 'tickcolor': '#94a3b8',
             },
-            'bar': {'color': info['color'], 'thickness': 0.28},
-            'bgcolor': 'white', 'borderwidth': 2, 'bordercolor': '#e2e8f0',
+            'bar': {'color': info['color'], 'thickness': 0.3},
+            'bgcolor': 'rgba(255, 255, 255, 0.05)', # Transparent background
+            'borderwidth': 0,
             'steps': [
-                {'range': [0, 40],  'color': '#dcfce7'},
-                {'range': [40, 65], 'color': '#fef9c3'},
-                {'range': [65, 80], 'color': '#ffedd5'},
-                {'range': [80, 95], 'color': '#fee2e2'},
-                {'range': [95, 100],'color': '#fca5a5'},
+                {'range': [0, 40],   'color': 'rgba(34, 197, 94, 0.15)'},  # Soft Green
+                {'range': [40, 65],  'color': 'rgba(234, 179, 8, 0.15)'},  # Soft Yellow
+                {'range': [65, 80],  'color': 'rgba(249, 115, 22, 0.15)'}, # Soft Orange
+                {'range': [80, 100], 'color': 'rgba(239, 68, 68, 0.15)'},  # Soft Red
             ],
             'threshold': {
                 'line': {'color': info['color'], 'width': 4},
-                'thickness': 0.8, 'value': pct,
+                'thickness': 0.75, 'value': pct,
             },
         }
     ))
+    
     fig.update_layout(
-        height=300, margin=dict(l=20, r=20, t=50, b=10),
-        paper_bgcolor='rgba(0,0,0,0)',
+        height=320, 
+        margin=dict(l=30, r=30, t=50, b=20),
+        paper_bgcolor='rgba(0,0,0,0)', # Full transparency
+        plot_bgcolor='rgba(0,0,0,0)',
+        font={'color': "#f8fafc", 'family': "Plus Jakarta Sans"}
     )
     return fig
 
@@ -161,15 +224,37 @@ def make_gauge(score: float) -> go.Figure:
 def make_vector_bar(va: np.ndarray, vb: np.ndarray, dims: int = 20) -> go.Figure:
     d = min(dims, len(va))
     fig = go.Figure()
-    fig.add_trace(go.Bar(name='Code A', x=[f'd{i}' for i in range(d)],
-                         y=va[:d], marker_color='#6366f1'))
-    fig.add_trace(go.Bar(name='Code B', x=[f'd{i}' for i in range(d)],
-                         y=vb[:d], marker_color='#f59e0b'))
+    
+    # Neon Indigo for Code A
+    fig.add_trace(go.Bar(
+        name='Code A', 
+        x=[f'd{i}' for i in range(d)],
+        y=va[:d], 
+        marker_color='#818cf8',
+        marker_line_color='#6366f1',
+        marker_line_width=1.5
+    ))
+    
+    # Neon Rose/Pink for Code B
+    fig.add_trace(go.Bar(
+        name='Code B', 
+        x=[f'd{i}' for i in range(d)],
+        y=vb[:d], 
+        marker_color='#fb7185',
+        marker_line_color='#e11d48',
+        marker_line_width=1.5
+    ))
+    
     fig.update_layout(
-        title='Document Vectors — First 20 Dimensions', barmode='group',
-        height=280, paper_bgcolor='rgba(0,0,0,0)',
-        margin=dict(l=10, r=10, t=40, b=20),
-        legend=dict(orientation='h', yanchor='bottom', y=1.02),
+        title={'text': 'Document Vectors — Structural Fingerprint', 'font': {'size': 16, 'color': '#94a3b8'}},
+        barmode='group',
+        height=300,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        margin=dict(l=10, r=10, t=50, b=20),
+        legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1, font={'color': '#f8fafc'}),
+        yaxis=dict(gridcolor='rgba(255,255,255,0.05)', zerolinecolor='rgba(255,255,255,0.2)'),
+        xaxis=dict(showgrid=False)
     )
     return fig
 
@@ -178,20 +263,31 @@ def make_heatmap(sim_df: pd.DataFrame) -> go.Figure:
     labels = list(sim_df.columns)
     z      = sim_df.values
     text   = [[f'{v:.1%}' for v in row] for row in z]
+    
+    # Modern "Viridis-style" but with High-Contrast Red/Green
     fig    = go.Figure(go.Heatmap(
         z=z, x=labels, y=labels,
         text=text, texttemplate='%{text}',
-        textfont={'size': 11},
-        colorscale=[[0.0, '#22c55e'], [0.5, '#fbbf24'],
-                    [0.8, '#f97316'], [1.0, '#dc2626']],
+        textfont={'size': 12, 'family': 'Plus Jakarta Sans', 'color': '#ffffff'},
+        colorscale=[
+            [0.0, '#1e293b'],   # Dark Slate (Low similarity)
+            [0.5, '#4ade80'],   # Green (Moderate)
+            [0.8, '#facc15'],   # Yellow (High)
+            [1.0, '#ef4444']    # Red (Plagiarism)
+        ],
         zmin=0, zmax=1,
-        colorbar=dict(title='Similarity', tickformat='.0%'),
+        showscale=True,
+        hoverinfo='z'
     ))
+    
     fig.update_layout(
-        title='Pairwise Similarity Matrix',
-        height=max(420, 80 * len(labels)),
+        title={'text': 'Batch Similarity Matrix', 'font': {'size': 18, 'color': '#f8fafc'}},
+        height=max(450, 90 * len(labels)),
         paper_bgcolor='rgba(0,0,0,0)',
-        margin=dict(l=10, r=10, t=60, b=10),
+        plot_bgcolor='rgba(0,0,0,0)',
+        margin=dict(l=20, r=20, t=60, b=20),
+        xaxis=dict(tickfont={'color': '#94a3b8'}),
+        yaxis=dict(tickfont={'color': '#94a3b8'})
     )
     return fig
 
